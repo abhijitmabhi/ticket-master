@@ -1,0 +1,37 @@
+package com.ama.ticketmaster.entity;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@Table(name = "venues")
+@Builder
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Venue {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String address;
+
+    @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private Set<Seat> seats = new HashSet<>();
+
+    @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Event> events = new HashSet<>();
+}
