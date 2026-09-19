@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -54,7 +55,7 @@ public class EventSeat {
 
     @OneToMany(mappedBy = "eventSeat", cascade = CascadeType.PERSIST, orphanRemoval = true)
     @Builder.Default
-    private Set<Booking> bookings;
+    private Set<Booking> bookings = new HashSet<>();
 
     @Version
     private Long version;
