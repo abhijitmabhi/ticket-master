@@ -33,6 +33,9 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
+def mockitoAgent = configurations.testRuntimeClasspath.find { it.name.contains("mockito-core") }
+
 tasks.named('test') {
     useJUnitPlatform()
+    jvmArgs "-javaagent:${mockitoAgent}"
 }
