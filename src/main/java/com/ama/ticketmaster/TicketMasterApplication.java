@@ -9,5 +9,4 @@ public class TicketMasterApplication {
     public static void main(String[] args) {
         SpringApplication.run(TicketMasterApplication.class, args);
     }
-
 }

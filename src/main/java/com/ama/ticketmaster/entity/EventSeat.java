@@ -16,19 +16,17 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import jakarta.persistence.Version;
+import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
-@Table(name = "event_seats",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"event_id", "seat_id"}))
+@Table(name = "event_seats", uniqueConstraints = @UniqueConstraint(columnNames = {"event_id", "seat_id"}))
 @Builder
 @Getter
 @AllArgsConstructor

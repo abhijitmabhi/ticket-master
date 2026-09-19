@@ -4,9 +4,8 @@ import com.ama.ticketmaster.dto.VenueRequestDto;
 import com.ama.ticketmaster.dto.VenueResponseDto;
 import com.ama.ticketmaster.entity.Venue;
 import com.ama.ticketmaster.repository.VenueRepository;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public class VenueService {
