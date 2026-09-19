@@ -1,5 +1,6 @@
 package com.ama.ticketmaster.entity;
 
+import com.ama.ticketmaster.entity.enums.BookingStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -15,6 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 
@@ -36,7 +38,8 @@ public class Booking {
     @Column(nullable = false)
     private String userId;
 
-    @Column(nullable = false)
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -45,9 +48,3 @@ public class Booking {
 
 }
 
-enum BookingStatus {
-    PENDING,
-    CONFIRMED,
-    CANCELLED,
-    EXPIRED
-}

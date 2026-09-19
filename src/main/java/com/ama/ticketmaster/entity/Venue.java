@@ -33,5 +33,6 @@ public class Venue {
     private Set<Seat> seats = new HashSet<>();
 
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private Set<Event> events = new HashSet<>();
 }
