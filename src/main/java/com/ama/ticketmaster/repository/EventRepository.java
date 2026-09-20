@@ -11,12 +11,12 @@ import org.springframework.stereotype.Repository;
 public interface EventRepository extends JpaRepository<Event, Long> {
     @Query(
             """
-            SELECT COUNT(e) > 0
-            FROM Event e
-            WHERE e.venue.id = :venueId
-            AND e.startTime < :endTime
-            AND :startTime < e.endTime
-            """)
+                    SELECT COUNT(e) > 0
+                    FROM Event e
+                    WHERE e.venue.id = :venueId
+                    AND e.startTime < :endTime
+                    AND :startTime < e.endTime
+                    """)
     boolean existsOverlappingEvent(
-            @Param("venueId") Long eventId, @Param("startTime") Instant startTime, @Param("endTime") Instant endTime);
+            @Param("venueId") Long venueId, @Param("startTime") Instant startTime, @Param("endTime") Instant endTime);
 }

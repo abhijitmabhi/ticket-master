@@ -1,4 +1,4 @@
-package com.ama.ticketmaster.dto;
+package com.ama.ticketmaster.dto.venue;
 
 import com.ama.ticketmaster.entity.Venue;
 

@@ -1,7 +1,7 @@
 package com.ama.ticketmaster.controller;
 
-import com.ama.ticketmaster.dto.VenueRequestDto;
-import com.ama.ticketmaster.dto.VenueResponseDto;
+import com.ama.ticketmaster.dto.venue.VenueRequestDto;
+import com.ama.ticketmaster.dto.venue.VenueResponseDto;
 import com.ama.ticketmaster.service.VenueService;
 import java.util.List;
 import org.springframework.http.HttpStatus;

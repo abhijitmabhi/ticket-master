@@ -1,7 +1,7 @@
 package com.ama.ticketmaster.service;
 
-import com.ama.ticketmaster.dto.VenueRequestDto;
-import com.ama.ticketmaster.dto.VenueResponseDto;
+import com.ama.ticketmaster.dto.venue.VenueRequestDto;
+import com.ama.ticketmaster.dto.venue.VenueResponseDto;
 import com.ama.ticketmaster.entity.Venue;
 import com.ama.ticketmaster.repository.VenueRepository;
 import java.util.List;
