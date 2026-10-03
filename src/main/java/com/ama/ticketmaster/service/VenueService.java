@@ -4,8 +4,9 @@ import com.ama.ticketmaster.dto.venue.VenueRequestDto;
 import com.ama.ticketmaster.dto.venue.VenueResponseDto;
 import com.ama.ticketmaster.entity.Venue;
 import com.ama.ticketmaster.repository.VenueRepository;
-import java.util.List;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class VenueService {
@@ -19,9 +20,8 @@ public class VenueService {
         venueRepository.save(venueRequest.toEntity());
     }
 
-    public VenueResponseDto getVenueById(Long venueId) {
-        Venue venue = venueRepository.findById(venueId).orElseThrow();
-        return VenueResponseDto.of(venue);
+    public Venue getVenueById(Long venueId) {
+        return venueRepository.findById(venueId).orElseThrow();
     }
 
     public List<VenueResponseDto> getAllVenue() {

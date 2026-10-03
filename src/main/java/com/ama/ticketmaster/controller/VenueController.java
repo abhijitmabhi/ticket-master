@@ -35,6 +35,6 @@ public class VenueController {
 
     @GetMapping("/{venueId}")
     public ResponseEntity<VenueResponseDto> findVenueById(@PathVariable long venueId) {
-        return ResponseEntity.ok(venueService.getVenueById(venueId));
+        return ResponseEntity.ok(VenueResponseDto.of(venueService.getVenueById(venueId)));
     }
 }
