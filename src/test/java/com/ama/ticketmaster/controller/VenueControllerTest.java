@@ -1,5 +1,6 @@
 package com.ama.ticketmaster.controller;
 
+import com.ama.ticketmaster.entity.Venue;
 import com.ama.ticketmaster.repository.VenueRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 import tools.jackson.databind.ObjectMapper;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -17,6 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Transactional
 @ActiveProfiles("test")
 class VenueControllerTest {
     @Autowired
@@ -28,11 +31,6 @@ class VenueControllerTest {
     @Autowired
     private VenueRepository venueRepository;
 
-    @BeforeEach
-    void tearDown() {
-        venueRepository.deleteAll();
-    }
-
     @Test
     void shouldReturnAllVenues() throws Exception {
         mockMvc.perform(get("/api/venue"))
@@ -41,10 +39,16 @@ class VenueControllerTest {
     }
 
     @Test
-    @Disabled
     void shouldReturnVenueById() throws Exception {
+        Venue savedVenue = venueRepository.save(
+                Venue.builder()
+                        .address("Olympischer Platz 3")
+                        .build()
+        );
+
         mockMvc.perform(get("/api/venue/1"))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.address").value("Olympischer Platz 3"));
     }
 
 }

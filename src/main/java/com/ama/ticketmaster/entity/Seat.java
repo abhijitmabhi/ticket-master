@@ -29,7 +29,7 @@ public class Seat extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "`row`", nullable = false)
     private String row;
 
     @Column(nullable = false)
