@@ -25,7 +25,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Booking {
+public class Booking extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

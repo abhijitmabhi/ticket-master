@@ -31,7 +31,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EventSeat {
+public class EventSeat extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
